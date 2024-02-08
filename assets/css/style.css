@@ -1,5 +1,10 @@
+html, body {
+    height: 100vh;
+}
+
 html {
     font-family: 'Lato', sans-serif;
+    background-color: #fff9e7;
 }
 
 body {
@@ -47,7 +52,7 @@ h1 {
     margin: 40px 0px;
 }
 
-section {
+.sobre {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,9 +64,52 @@ section {
     text-align: justify;
 }
 
-section img {
+.sobre img {
     width: 20%;
     height: 10%;
     border-radius: 18px;
     margin-left: 28px;
+}
+
+.pitch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.pitch iframe {
+    width: 60%;
+    border-radius: 10px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #29282b;
+    color: #ffa500;
+    margin-top: 20px;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+footer div {
+    align-items: center;
+    height: 35px;
+    padding-top: 20px;
+}
+
+footer div a {
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+footer div img {
+    height: 100%;
+    width: auto;
 }
