@@ -15,7 +15,7 @@ function validarNome() {
     txtNome.style.color = "red";
     nomeOk = false;
   } else {
-    txtNome.innerHTML = "✔";
+    txtNome.innerHTML = "Nome válido";
     txtNome.style.color = "green";
     nomeOk = true;
   }
@@ -29,7 +29,7 @@ function validarEmail() {
     txtEmail.style.color = "red";
     emailOk = false;
   } else {
-    txtEmail.innerHTML = "✔";
+    txtEmail.innerHTML = "E-mail válido";
     txtEmail.style.color = "green";
     emailOk = true;
   }
@@ -69,53 +69,5 @@ function enviarForm() {
     alert(nome.value + ", obrigado pelo contato, aguarde nosso retorno.");
   } else {
     alert("Por favor, preencha todos os campos corretamente.");
-  }
-}
-
-const eNumero = (numero) => /^[0-9]+$/.test(numero);
-
-const cepValido = (cep) => cep.length == 8 && eNumero(cep);
-
-function validarCep() {
-  const cep = document.getElementById("cep").value.replace("-", "");
-
-  if (cepValido(cep)) {
-    txtCep.innerHTML = "✔";
-    txtCep.style.color = "green";
-    cepOk = true;
-  } else {
-    txtCep.innerHTML = "CEP Inválido";
-    txtCep.style.color = "red";
-    cepOK = false;
-  }
-}
-
-function consultarCep() {
-  document.getElementById("dados").innerHTML = "";
-console.log(cepOk);
-const cep = document.getElementById("cep").value.replace("-", "");
-const url = `https://viacep.com.br/ws/${cep}/json/`;
-
-if (cepOk === true || cepValido(cep)) {
-   
-    fetch(url)
-      .then((response) => response.json())
-      .then((jsonBody) => {
-        if (jsonBody.erro === true || jsonBody.logradouro === undefined) {
-          alert("CEP nao encontrado!");
-        } else {
-          document.getElementById("dados").innerHTML =
-            jsonBody.logradouro +
-            "\n" +
-            jsonBody.bairro +
-            "\n" +
-            jsonBody.localidade +
-            "\n" +
-            jsonBody.uf;
-        }
-      })
-      .catch((error) => {
-        alert("CEP não encontrado!");
-      });
   }
 }
